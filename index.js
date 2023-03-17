@@ -11,4 +11,17 @@ document.addEventListener("DOMContentLoaded", () => {
     const operators = document.querySelectorAll(".operation");
     const previousScreen = document.querySelector(".previous");
     const currentScreen = document.querySelector(".current");
+
+    numbers.forEach((number) => number.addEventListener("click", (e) => {
+        handleNumber(e.target.textContent);
+        currentScreen.textContent = currentValue;
+    }))
 })
+
+
+function handleNumber(num) {
+    if (currentValue.length <= 5) {
+        currentValue += num;
+    }
+    
+}
