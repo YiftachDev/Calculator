@@ -30,6 +30,21 @@ document.addEventListener("DOMContentLoaded", () => {
         previousScreen.textContent = '';
         currentScreen.textContent = '';
     })
+    
+    equal.addEventListener("click", () => {
+        if (currentValue !== '' && previousValue !== '')
+        {
+            let res = operate(previousValue, currentValue, operator);
+            previousValue = res;
+            previousScreen.textContent = '';
+            currentScreen.textContent = previousValue;
+        }
+
+    })
+    
+    decimal.addEventListener("click", () => {
+        addDecimal(currentScreen);
+    })
 })
 
 
@@ -43,4 +58,45 @@ function handleOperator(op) {
     operator = op;
     previousValue = currentValue;
     currentValue = '';
+}
+
+
+function operate(first, second, operation) {
+    let res;
+    first = parseFloat(first);
+    second = parseFloat(second);
+    switch (operation) {
+        case '+': res = add (first, second); break;
+        case '-': res = sub (first, second); break;
+        case '/': res = divide (first, second); break;
+        case '*': res = multi (first, second); break;
+    }
+    return roundNumber(res);
+}
+
+function roundNumber(num) {
+    return Math.round(num * 1000) / 1000;
+}
+
+function add(x, y) {
+    return x + y
+}
+
+function sub (x, y) {
+    return x - y;
+}
+
+function divide (x, y) {
+    return x / y;
+}
+
+function multi (x, y) {
+    return x * y;
+}
+
+function addDecimal(screen) {
+    if (!currentValue.includes(".")) {
+        currentValue += ".";
+        screen.textContent = currentValue;
+    }
 }
