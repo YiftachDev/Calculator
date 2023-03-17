@@ -22,6 +22,14 @@ document.addEventListener("DOMContentLoaded", () => {
         previousScreen.textContent = previousValue += " " + operator;
         currentScreen.textContent = currentValue;
     }))
+
+    clear.addEventListener("click", () => {
+        previousValue = '';
+        currentValue = '';
+        operator = '';
+        previousScreen.textContent = '';
+        currentScreen.textContent = '';
+    })
 })
 
 
