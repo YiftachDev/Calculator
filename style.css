@@ -15,15 +15,17 @@ body {
     align-items: center;
 }
 
-.head {
+.screen {
     border: black 2px solid;
     border-radius: 8px;
     width: 400px;
     height: 100px;
     margin-top: 32px;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+
 }
 
 .calc-body {
@@ -38,4 +40,12 @@ body {
 
 .big-btn {
     grid-column: span 2;
+}
+
+.previous {
+    font-size: 20px;
+}
+
+.current {
+    font-size: 40px;
 }
